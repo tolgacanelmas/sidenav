@@ -1,0 +1,71 @@
+.categoriesContainer {
+    padding-left: 15px;
+}
+
+.categoriesContainer > div {
+   margin: 15px 0px;
+}
+
+.categoryname {
+    display: flex;
+    align-items: center;
+
+}
+
+.categoryname > img {
+    margin-right: 10px;
+}
+
+.categoryname > p {
+    font-size: 20px;
+    color: #8B8D9A;
+}
+
+.subcategorycontainer {
+    margin-top: 10px;
+    height: 0px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.subcategorycontainer.active {
+    height: 100%;
+    visibility: visible;
+    opacity: 1;
+    transition: 0.2s all;
+}
+
+.subcategorycontainer > div {
+    position: relative;
+    color: #8d91a0;
+    margin-bottom: 5px;
+    padding: 7px 0px 7px 40px;
+}
+
+
+.subcategorycontainer > div:hover {
+    background-color: #F6F8FA;
+}
+.subcategorycontainer > div:before {
+    content: "";
+    position: absolute;
+    left: 25px;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 7px;
+    height: 7px;
+}
+
+.subcategorycontainer > div:nth-child(4n + 1):before {
+    background-color: #f2994a;
+}
+.subcategorycontainer > div:nth-child(4n + 2):before {
+    background-color: #eb5757;
+}
+.subcategorycontainer > div:nth-child(4n + 3):before {
+    background-color: #219653;
+}
+.subcategorycontainer > div:nth-child(4n + 4):before {
+    background-color: #2d9cdb;
+}
