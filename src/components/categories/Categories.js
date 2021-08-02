@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import MenuItem from './MenuItem';
 import styles from './categories.module.css';
 
-function Categories() {
+function Categories({ setToggleMenu, toggleMenu }) {
   const [categories, setCategories] = useState([
     {
       name: "Home",
@@ -43,7 +43,7 @@ function Categories() {
       {
         categories.map((category, i) => {
           return (
-            <MenuItem name={category.name} img={category.img} subCategory={category.subCategory} key={i} />
+            <MenuItem name={category.name} img={category.img} subCategory={category.subCategory} key={i} setToggleMenu={setToggleMenu} toggleMenu={toggleMenu} />
           )
         })
       }

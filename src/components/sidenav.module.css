@@ -1,0 +1,12 @@
+.sidenav {
+    max-width: 310px;
+    height: 100%;
+    background-color: #fff;
+    transition: 0.3s all;
+    overflow: hidden;
+    padding: 0px 3px;
+  }
+
+  .sidenav.hidden {
+      max-width: 50px;
+  }
