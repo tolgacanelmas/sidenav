@@ -4,14 +4,14 @@
     border-bottom: 1px solid #F6F6F7;
 }
 
-.search > .searchinput > img {
+.searchimg {
     position: absolute;
     left: 15px;
     top: 50%;
     transform: translateY(-50%);
 }
 
-.search > .searchinput {
+.searchinput {
     background-color: #F6F8FA;
     position: relative;
     color:#898FA3;
@@ -21,7 +21,7 @@
     width: 100%;
 }
 
-.search > div > input {
+.input {
     background-color: #F6F8FA;
     color:#898FA3;
     border-radius: 4px;
@@ -29,10 +29,10 @@
     font-size: 15px;
     font-family: 'Space Grotesk';
     padding: 15px 0px;
-    padding-left: 50px;
+    padding-left: 55px;
 }
 
-.search > input::placeholder{
+.input::placeholder{
     font-family: 'Space Grotesk';
     font-weight: 400;
     font-size: 15px;

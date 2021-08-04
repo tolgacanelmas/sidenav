@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
-import styles from './sidenav.module.css'
+import React, { useState } from 'react';
+
+import styles from './sidenav.module.css';
 
 import Header from './header/Header';
 import Search from './search/Search';
@@ -8,17 +9,30 @@ import Notification from './Notification';
 import Settings from './Settings';
 import Profile from './Profile';
 
+import { ToggleMenuContext } from './toggleMenuContext';
+
 const Sidenav = () => {
-    const [toggleMenu, setToggleMenu] = useState(false);
+    const [isToggled, setIsToggled] = useState(false);
+
+    const providerValues = {
+        toggle: () => {
+            setIsToggled(!isToggled)
+        },
+        showMenu: () => {
+            setIsToggled(false)
+        }
+    }
 
     return (
-        <div className={`${toggleMenu ? styles.hidden : ""} ${styles.sidenav}`}>
-            <Header setToggleMenu={setToggleMenu} toggleMenu={toggleMenu} />
-            <Search setToggleMenu={setToggleMenu} toggleMenu={toggleMenu} />
-            <Categories setToggleMenu={setToggleMenu} toggleMenu={toggleMenu} />
-            <Notification />
-            <Settings />
-            <Profile />
+        <div className={`${isToggled ? styles.hidden : ""} ${styles.sidenav}`}>
+            <ToggleMenuContext.Provider value={providerValues}>
+                <Header />
+                <Search />
+                <Categories />
+                <Notification />
+                <Settings />
+                <Profile />
+            </ToggleMenuContext.Provider>
         </div>
     )
 }

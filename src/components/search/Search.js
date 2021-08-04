@@ -1,17 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styles from './search.module.css';
 
-function Search({ setToggleMenu, toggleMenu }) {
+import { ToggleMenuContext } from '../toggleMenuContext';
 
-  const handleToggleMenu = () => {
-    setToggleMenu(false)
-  }
+function Search() {
+  const toggleMenu = useContext(ToggleMenuContext)
 
   return (
     <div className={styles.search}>
       <div className={styles.searchinput}>
-        <img src="/assets/search.png" alt="search" onClick={handleToggleMenu} />
-        <input type="text" placeholder="Search" />
+        <img src="/assets/search.png" alt="search" className={styles.searchimg} onClick={toggleMenu.showMenu}/>
+        <input type="text" placeholder="Search" className={styles.input} />
       </div>
     </div>
   );

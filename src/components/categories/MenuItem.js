@@ -1,52 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState , useContext } from 'react';
 import styles from './categories.module.css';
+import { ToggleMenuContext } from '../toggleMenuContext';
 
-function MenuItem({ name, img, subCategory, setToggleMenu, toggleMenu }) {
+function MenuItem({ name, img, subCategory, id }) {
     const [isHidden, setIsHidden] = useState(true)
+    const toggleMenu = useContext(ToggleMenuContext)
 
     const handleSubMenu = () => {
         setIsHidden(!isHidden)
     }
 
-    const handleToggleMenu = () => {
-        setToggleMenu(false)
-    }
-
-    if (subCategory.length > 0) {
-        return (
-            <div className={styles.category} >
-                <div className={styles.categoryname} onClick={handleSubMenu}>
-                    <img src={`/assets${img}`} alt="icon" onClick={handleToggleMenu} />
-                    <p>
-                        {name}
-                    </p>
-                </div>
+    return (
+        <div className={styles.category} key={id} onClick={toggleMenu.showMenu}>
+            <div className={styles.categoryname} onClick={handleSubMenu}>
+                <img src={`/assets${img}`} alt="icon" className={styles.icon} />
+                <p className={styles.categorytitle}>
+                    {name}
+                </p>
+            </div>
+            {
+                subCategory.length > 0 &&
                 <div className={`${isHidden ? "" : styles.active} ${styles.subcategorycontainer}`}>
                     {
-                        subCategory.map((subCategory) => {
+                        subCategory && subCategory.map((subCategory, i) => {
                             return (
-                                <div>
+                                <div className={styles.subcategorytitle} key={i}>
                                     {subCategory}
                                 </div>
                             )
                         })
                     }
                 </div>
-            </div>
-        );
-    } else {
-        return (
-            <div className={styles.category} >
-                <div className={styles.categoryname}>
-                    <img src={`/assets${img}`} alt="icon" onClick={handleToggleMenu} />
-                    <p>
-                        {name}
-                    </p>
-                </div>
-            </div>
-        );
-    }
-
+            }
+        </div>
+    );
 }
 
 export default MenuItem;
