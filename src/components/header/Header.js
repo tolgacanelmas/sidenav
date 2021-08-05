@@ -11,7 +11,7 @@ function Header() {
         <img src="assets/logo.png" alt="logo"  onClick={toggleMenu.toggle}/>
         <h3>Docket</h3>
       </div>
-      <div onClick={toggleMenu.toggle}>
+      <div onClick={toggleMenu.toggle} className={styles.togglebutton}>
         <img src="/assets/toggle.png" alt="toggle" />
       </div>
     </div>

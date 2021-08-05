@@ -1,5 +1,6 @@
 import React, { useState , useContext } from 'react';
 import styles from './categories.module.css';
+import PropTypes from 'prop-types';
 import { ToggleMenuContext } from '../toggleMenuContext';
 
 function MenuItem({ name, img, subCategory, id }) {
@@ -22,7 +23,7 @@ function MenuItem({ name, img, subCategory, id }) {
                 subCategory.length > 0 &&
                 <div className={`${isHidden ? "" : styles.active} ${styles.subcategorycontainer}`}>
                     {
-                        subCategory && subCategory.map((subCategory, i) => {
+                        subCategory.map((subCategory, i) => {
                             return (
                                 <div className={styles.subcategorytitle} key={i}>
                                     {subCategory}
@@ -34,6 +35,13 @@ function MenuItem({ name, img, subCategory, id }) {
             }
         </div>
     );
+}
+
+MenuItem.propTypes = {
+    name: PropTypes.string,
+    img: PropTypes.string,
+    subCategory: PropTypes.array,
+    id : PropTypes.number
 }
 
 export default MenuItem;

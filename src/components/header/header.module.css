@@ -6,6 +6,11 @@
 }
 
 .logo {
+    cursor: pointer;
     display: flex;
     align-items: center;
+}
+
+.togglebutton{
+    cursor: pointer;
 }
